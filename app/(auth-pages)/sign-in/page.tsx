@@ -9,28 +9,9 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
   const searchParams = await props.searchParams;
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#f7f2ed]">
-      {/* Mobile Header */}
-      <div className="flex md:hidden bg-[#1d1d1d] py-4 px-6 justify-center items-center rounded-b-2xl">
-        <span className="text-white text-xl font-bold">finance</span>
-      </div>
-
-      {/* Sidebar illustration for desktop only */}
-      <div className="hidden md:flex w-1/2 bg-[#1d1d1d] items-center justify-center rounded-r-3xl">
-        <Image
-          src="/Sidebar.svg"
-          alt="Illustration"
-          width={500}
-          height={500}
-          className="object-contain"
-        />
-      </div>
-
-      {/* Login form */}
-      <div className="flex-1 flex items-center justify-center p-6">
-        <form className="bg-white rounded-xl shadow-md p-8 w-full max-w-md">
+    <div className="flex flex-col md:flex-row">
+        <form className="bg-white rounded-xl w-[560px] h-[422px] shadow-md p-8">
           <h1 className="text-2xl font-bold mb-6">Login</h1>
-
           <div className="space-y-4">
             <div>
               <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -41,10 +22,8 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
                 type="email"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                placeholder="you@example.com"
               />
             </div>
-
             <div>
               <Label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
                 Password
@@ -55,9 +34,7 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
                   type="password"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-black"
-                  placeholder="Your password"
                 />
-                {/* Static eye icon for now */}
                 <div className="absolute inset-y-0 right-3 flex items-center cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +59,6 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
                 </div>
               </div>
             </div>
-
             <SubmitButton
               pendingText="Signing In..."
               formAction={signInAction}
@@ -90,10 +66,8 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
             >
               Login
             </SubmitButton>
-
             <FormMessage message={searchParams} />
           </div>
-
           <p className="mt-6 text-sm text-center text-gray-500">
             Need to create an account?{" "}
             <Link href="/sign-up" className="font-medium text-black underline">
@@ -101,7 +75,7 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
             </Link>
           </p>
         </form>
-      </div>
+  
     </div>
   );
 }
